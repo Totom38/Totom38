@@ -206,12 +206,17 @@ figcaption {
 
 .project-list th:nth-child(2),
 .project-list td:nth-child(2) {
-    width: 15%; /* Réduire la largeur de la colonne Date */
+    width: 15%; /* Réduire la largeur de la colonne Language */
 }
 
 .project-list th:nth-child(3),
 .project-list td:nth-child(3) {
-    width: 20%; /* Réduire la largeur de la colonne Type */
+    width: 15%; /* Réduire la largeur de la colonne Date */
+}
+
+.project-list th:nth-child(4),
+.project-list td:nth-child(4) {
+    width: 15%; /* Réduire la largeur de la colonne Type */
 }
 
 .project-list tr:nth-child(even) {
@@ -242,70 +247,12 @@ figcaption {
     border-radius: 10px;
 }
 
-/* Ajoutez ce CSS à la fin de votre fichier styles.css */
-
-/* Style pour la table de la liste des projets */
-.project-list-container {
-    width: 80%;
-    margin: 0 auto;
-    margin-top: 20px;
-    max-height: 66vh; /* Limite de la hauteur de la table à 2/3 de la hauteur de la fenêtre */
-    overflow-y: auto; /* Ajout de la barre de défilement verticale */
-    border: 1px solid #444; /* Bordure autour du conteneur de la table */
+/* Style pour les liens dans la table */
+.project-list a {
+    color: inherit; /* Utilise la couleur du texte parent */
+    text-decoration: none; /* Supprime le soulignement */
 }
 
-.project-list {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.project-list th,
-.project-list td {
-    border: 1px solid #444;
-    padding: 10px;
-    text-align: left;
-    color: #ddd;
-}
-
-.project-list th {
-    background-color: #333;
-    color: #ff7f00; /* Titre en orange */
-}
-
-.project-list th:nth-child(2),
-.project-list td:nth-child(2) {
-    width: 15%; /* Réduire la largeur de la colonne Date */
-}
-
-.project-list th:nth-child(3),
-.project-list td:nth-child(3) {
-    width: 20%; /* Réduire la largeur de la colonne Type */
-}
-
-.project-list tr:nth-child(even) {
-    background-color: #2a2a2a;
-}
-
-.project-list tr:hover {
-    background-color: #444;
-    cursor: pointer;
-}
-
-/* Personnalisation de la barre de défilement */
-.project-list-container::-webkit-scrollbar {
-    width: 12px;
-}
-
-.project-list-container::-webkit-scrollbar-thumb {
-    background-color: #ff7f00; /* Couleur orange pour le pouce */
-    border-radius: 10px;
-}
-
-.project-list-container::-webkit-scrollbar-thumb:hover {
-    background-color: #ff5500; /* Couleur orange plus foncée au survol */
-}
-
-.project-list-container::-webkit-scrollbar-track {
-    background-color: #333; /* Couleur de la piste de défilement */
-    border-radius: 10px;
+.project-list a:hover {
+    color: #ff7f00;
 }
