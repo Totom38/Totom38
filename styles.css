@@ -10,10 +10,15 @@ a {
     text-decoration: none; /* Supprime le soulignement par défaut */
 }
 
+a:visited {
+    color: #fff; /* Couleur blanche pour les liens visités */
+}
+
 a:hover {
     color: #ff7f00; /* Couleur orange au survol */
     text-decoration:none; /* Ajoute un soulignement au survol */
 }
+
 
 body {
     font-family: 'Roboto', sans-serif;
