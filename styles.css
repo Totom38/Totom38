@@ -5,6 +5,16 @@
     box-sizing: border-box;
 }
 
+a {
+    color: #fff; /* Couleur blanche par défaut */
+    text-decoration: none; /* Supprime le soulignement par défaut */
+}
+
+a:hover {
+    color: #ff7f00; /* Couleur orange au survol */
+    text-decoration:none; /* Ajoute un soulignement au survol */
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     color: #ddd;
