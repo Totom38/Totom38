@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Tom Gilgenkrantz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Tom Gilgenkrantz</h1>
+        <nav>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="finance.html">Finance</a></li>
+                <li><a href="tech.html">Tech</a></li>
+                <li><a href="origami.html">Origami</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="contact-icons">
+                <a href="https://www.linkedin.com/in/tom-gilgenkrantz/" target="_blank">
+                    <img src="images/linkedin.png" alt="LinkedIn">
+                </a>
+                <a href="#" onclick="showPopup('phone')">
+                    <img src="images/phone.png" alt="Phone">
+                </a>
+                <a href="#" onclick="showPopup('email')">
+                    <img src="images/email.png" alt="Email">
+                </a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Tom Gilgenkrantz. All rights reserved.</p>
+    </footer>
+
+    <!-- Popups -->
+    <div id="phone-popup" class="popup" onclick="closePopup(event)">
+        <div class="popup-content" onclick="event.stopPropagation()">
+            <p>+33 7 82 96 18 40</p>
+        </div>
+    </div>
+
+    <div id="email-popup" class="popup" onclick="closePopup(event)">
+        <div class="popup-content" onclick="event.stopPropagation()">
+            <p>tom.gilgenkrantz@gmail.com</p>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
