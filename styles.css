@@ -249,7 +249,7 @@ figcaption {
 
 /* Style pour les liens dans la table */
 .project-list a {
-    color: inherit; /* Utilise la couleur du texte parent */
+    color: #ddd; /* Utilise la couleur du texte parent */
     text-decoration: none; /* Supprime le soulignement */
 }
 
