@@ -26,81 +26,81 @@
             <div class="gallery">
                 <div class="column">
                     <figure>
-                        <img src="images/origami1.png" alt="Origami 1">
+                        <img src="images/origami1.png" alt="Origami 1" onclick="showOrigamiPopup('origami1')">
                         <figcaption>360 unit Phizz Buckyball (Tom Hull)</figcaption>
                     </figure>
                     <figure>
-                        <img src="images/origami4.png" alt="Origami 4">
+                        <img src="images/origami4.png" alt="Origami 4" onclick="showOrigamiPopup('origami4')">
                         <figcaption>360 unit Ant Lion’s Nest (Tomoko Fuse)</figcaption>
                     </figure>
                     <figure>
-                        <img src="images/origami15.png" alt="Origami 7">
+                        <img src="images/origami15.png" alt="Origami 15" onclick="showOrigamiPopup('origami15')">
                         <figcaption>World map Papercraft</figcaption>
                     </figure>
                     <figure>
-                        <img src="images/origami10.jpg" alt="Origami 10">
+                        <img src="images/origami10.jpg" alt="Origami 10" onclick="showOrigamiPopup('origami10')">
                         <figcaption>Kusudama Star</figcaption>
                     </figure>
                     <figure>
-                        <img src="images/origami13.jpg" alt="Origami 13">
+                        <img src="images/origami13.jpg" alt="Origami 13" onclick="showOrigamiPopup('origami13')">
                         <figcaption>Flower Ball</figcaption>
                     </figure>
                     <figure>
-                        <img src="images/origami16.png" alt="Origami 16">
+                        <img src="images/origami16.png" alt="Origami 16" onclick="showOrigamiPopup('origami16')">
                         <figcaption>Intersecting cubes</figcaption>
                     </figure>
                     <!-- Ajoutez plus d'images ici pour la colonne 1 -->
                 </div>
                 <div class="column">
                     <figure>
-                        <img src="images/origami2.jpg" alt="Origami 2">
+                        <img src="images/origami2.jpg" alt="Origami 2" onclick="showOrigamiPopup('origami2')">
                         <figcaption>Six Interlocking Square Prisms</figcaption>
                     </figure>
                     <figure>
-                        <img src="images/origami5.jpg" alt="Origami 5">
+                        <img src="images/origami5.jpg" alt="Origami 5" onclick="showOrigamiPopup('origami5')">
                         <figcaption>Lys Flower</figcaption>
                     </figure>
                     <figure>
-                        <img src="images/origami8.jpg" alt="Origami 8">
+                        <img src="images/origami8.jpg" alt="Origami 8" onclick="showOrigamiPopup('origami8')">
                         <figcaption>Bouquet of roses and lilies</figcaption>
                     </figure>
                     <figure>
-                        <img src="images/origami11.jpg" alt="Origami 11">
+                        <img src="images/origami11.jpg" alt="Origami 11" onclick="showOrigamiPopup('origami11')">
                         <figcaption>World map Papercraft</figcaption>
                     </figure>
                     <figure>
-                        <img src="images/origami14.jpg" alt="Origami 14">
+                        <img src="images/origami14.jpg" alt="Origami 14" onclick="showOrigamiPopup('origami14')">
                         <figcaption>Origami earring</figcaption>
                     </figure>
                     <figure>
-                        <img src="images/origami18.jpg" alt="Origami 18">
+                        <img src="images/origami18.jpg" alt="Origami 18" onclick="showOrigamiPopup('origami18')">
                         <figcaption>Bridal bouquet</figcaption>
                     </figure>
                     <!-- Ajoutez plus d'images ici pour la colonne 2 -->
                 </div>
                 <div class="column">
                     <figure>
-                        <img src="images/origami3.png" alt="Origami 3">
+                        <img src="images/origami3.png" alt="Origami 3" onclick="showOrigamiPopup('origami3')">
                         <figcaption>Bouquet of lilies</figcaption>
                     </figure>
                     <figure>
-                        <img src="images/origami6.jpg" alt="Origami 6">
+                        <img src="images/origami6.jpg" alt="Origami 6" onclick="showOrigamiPopup('origami6')">
                         <figcaption>Rose (Kawasaki)</figcaption>
                     </figure>
                     <figure>
-                        <img src="images/origami9.png" alt="Origami 9">
+                        <img src="images/origami9.png" alt="Origami 9" onclick="showOrigamiPopup('origami9')">
                         <figcaption>Charmander Papercraft</figcaption>
                     </figure>
                     <figure>
-                        <img src="images/origami12.png" alt="Origami 12">
+                        <img src="images/origami12.png" alt="Origami 12" onclick="showOrigamiPopup('origami12')">
                         <figcaption>Intersecting tetrahedras (Tom Hull)</figcaption>
                     </figure>
                     <figure>
-                        <img src="images/origami7.png" alt="Origami 15">
+                        <img src="images/origami7.png" alt="Origami 7" onclick="showOrigamiPopup('origami7')">
                         <figcaption>Charizard papercraft</figcaption>
                     </figure>
                     <figure>
-                        <img src="images/origami17.png" alt="Origami 17">
+                        <img src="images/origami17.png" alt="Origami 17" onclick="showOrigamiPopup('origami17')">
                         <figcaption>Rose windows</figcaption>
                     </figure>
                     <!-- Ajoutez plus d'images ici pour la colonne 3 -->
@@ -109,6 +109,97 @@
         </section>
     </main>
     <footer>
+        <div id="origami-popup-origami1" class="origami-popup" onclick="closeOrigamiPopup(event)">
+            <div class="origami-popup-content" onclick="event.stopPropagation()">
+                <img src="images/origami1.png" alt="Origami 1">
+            </div>
+        </div>
+        <div id="origami-popup-origami2" class="origami-popup" onclick="closeOrigamiPopup(event)">
+            <div class="origami-popup-content" onclick="event.stopPropagation()">
+                <img src="images/origami2.jpg" alt="Origami 2">
+            </div>
+        </div>
+        <div id="origami-popup-origami3" class="origami-popup" onclick="closeOrigamiPopup(event)">
+            <div class="origami-popup-content" onclick="event.stopPropagation()">
+                <img src="images/origami3.png" alt="Origami 3">
+            </div>
+        </div>
+        <div id="origami-popup-origami4" class="origami-popup" onclick="closeOrigamiPopup(event)">
+            <div class="origami-popup-content" onclick="event.stopPropagation()">
+                <img src="images/origami4.png" alt="Origami 4">
+            </div>
+        </div>
+        <div id="origami-popup-origami5" class="origami-popup" onclick="closeOrigamiPopup(event)">
+            <div class="origami-popup-content" onclick="event.stopPropagation()">
+                <img src="images/origami5.jpg" alt="Origami 5">
+            </div>
+        </div>
+        <div id="origami-popup-origami6" class="origami-popup" onclick="closeOrigamiPopup(event)">
+            <div class="origami-popup-content" onclick="event.stopPropagation()">
+                <img src="images/origami6.jpg" alt="Origami 6">
+            </div>
+        </div>
+        <div id="origami-popup-origami7" class="origami-popup" onclick="closeOrigamiPopup(event)">
+            <div class="origami-popup-content" onclick="event.stopPropagation()">
+                <img src="images/origami7.png" alt="Origami 7">
+            </div>
+        </div>
+        <div id="origami-popup-origami8" class="origami-popup" onclick="closeOrigamiPopup(event)">
+            <div class="origami-popup-content" onclick="event.stopPropagation()">
+                <img src="images/origami8.jpg" alt="Origami 8">
+            </div>
+        </div>
+        <div id="origami-popup-origami9" class="origami-popup" onclick="closeOrigamiPopup(event)">
+            <div class="origami-popup-content" onclick="event.stopPropagation()">
+                <img src="images/origami9.png" alt="Origami 9">
+            </div>
+        </div>
+        <div id="origami-popup-origami10" class="origami-popup" onclick="closeOrigamiPopup(event)">
+            <div class="origami-popup-content" onclick="event.stopPropagation()">
+                <img src="images/origami10.jpg" alt="Origami 10">
+            </div>
+        </div>
+        <div id="origami-popup-origami11" class="origami-popup" onclick="closeOrigamiPopup(event)">
+            <div class="origami-popup-content" onclick="event.stopPropagation()">
+                <img src="images/origami11.jpg" alt="Origami 11">
+            </div>
+        </div>
+        <div id="origami-popup-origami12" class="origami-popup" onclick="closeOrigamiPopup(event)">
+            <div class="origami-popup-content" onclick="event.stopPropagation()">
+                <img src="images/origami12.png" alt="Origami 12">
+            </div>
+        </div>
+        <div id="origami-popup-origami13" class="origami-popup" onclick="closeOrigamiPopup(event)">
+            <div class="origami-popup-content" onclick="event.stopPropagation()">
+                <img src="images/origami13.jpg" alt="Origami 13">
+            </div>
+        </div>
+        <div id="origami-popup-origami14" class="origami-popup" onclick="closeOrigamiPopup(event)">
+            <div class="origami-popup-content" onclick="event.stopPropagation()">
+                <img src="images/origami14.jpg" alt="Origami 14">
+            </div>
+        </div>
+        <div id="origami-popup-origami15" class="origami-popup" onclick="closeOrigamiPopup(event)">
+            <div class="origami-popup-content" onclick="event.stopPropagation()">
+                <img src="images/origami15.png" alt="Origami 15">
+            </div>
+        </div>
+        <div id="origami-popup-origami16" class="origami-popup" onclick="closeOrigamiPopup(event)">
+            <div class="origami-popup-content" onclick="event.stopPropagation()">
+                <img src="images/origami16.png" alt="Origami 16">
+            </div>
+        </div>
+        <div id="origami-popup-origami17" class="origami-popup" onclick="closeOrigamiPopup(event)">
+            <div class="origami-popup-content" onclick="event.stopPropagation()">
+                <img src="images/origami17.png" alt="Origami 17">
+            </div>
+        </div>
+        <div id="origami-popup-origami18" class="origami-popup" onclick="closeOrigamiPopup(event)">
+            <div class="origami-popup-content" onclick="event.stopPropagation()">
+                <img src="images/origami18.jpg" alt="Origami 18">
+            </div>
+        </div>
+        <script src="scripts.js"></script>
         <p>&copy; 2024 Tom Gilgenkrantz. All rights reserved.</p>
     </footer>
 </body>

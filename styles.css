@@ -268,3 +268,36 @@ figcaption {
         grid-template-columns: 1fr; /* Une seule colonne sur les écrans de petite taille */
     }
 }
+
+/* Ajoutez ce CSS à la fin de votre fichier styles.css */
+
+/* Style pour les popups d'origami */
+.origami-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.origami-popup-content {
+    position: relative;
+    background-color: #1e1e1e;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+    max-width: 80%;
+    max-height: 80%;
+    overflow: auto;
+}
+
+.origami-popup-content img {
+    max-width: 100%;
+    max-height: 100%;
+}
