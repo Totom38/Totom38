@@ -81,6 +81,12 @@ footer {
     margin-top: 20px;
 }
 
+a {
+    color: #fff; /* Couleur blanche par défaut */
+    text-decoration: none; /* Supprime le soulignement par défaut */
+    transition: color 0.3s; /* Ajoute une transition pour un effet fluide */
+}
+
 .gallery {
     display: flex;
     justify-content: center; /* Centrer les colonnes */
@@ -255,4 +261,10 @@ figcaption {
 
 .project-list a:hover {
     color: #ff7f00;
+}
+
+@media (max-width: 600px) {
+    .gallery {
+        grid-template-columns: 1fr; /* Une seule colonne sur les écrans de petite taille */
+    }
 }
