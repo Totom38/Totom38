@@ -365,3 +365,58 @@ nav ul li a {
         margin-bottom: 10px;
     }
 }
+
+/* Styles pour les écrans larges */
+.about-section {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 66.66%; /* 2/3 de la largeur totale */
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.about-text {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.profile-photo {
+    flex: 0 0 200px; /* Ajustez la largeur de l'image selon vos besoins */
+}
+
+.profile-photo img {
+    width: 100%;
+    height: auto;
+}
+
+/* Styles pour les écrans étroits */
+@media (max-width: 600px) {
+    .about-section {
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%; /* Réinitialiser la largeur à 100% sur les petits écrans */
+    }
+
+    .about-text {
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .profile-photo {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .project-list th:nth-child(3),
+    .project-list th:nth-child(4),
+    .project-list td:nth-child(3),
+    .project-list td:nth-child(4) {
+        display: none;
+    }
+
+    .project-list-container {
+        overflow-x: auto; /* Permettre le défilement horizontal si nécessaire */
+    }
+}
