@@ -7,6 +7,26 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="images/logo.png" type="image/png">
+    <style>
+        .pdf-button {
+            display: inline-block;
+            padding: 8px 16px;
+            font-size: 14px;
+            color: white;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .pdf-button:hover {
+            color: #ff7f00;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -24,6 +44,7 @@
     <main>
         <section id="tech">
             <h2>Tech Projects</h2>
+            <a href="pdf/tech.pdf" class="pdf-button" target="_blank">Project summary &middot; <em>PDF</em></a>
             <div class="project-list-container">
                 <table class="project-list">
                     <thead>
@@ -37,7 +58,7 @@
                     <tbody>
                         <tr>
                             <td data-label="Project"><a href="index.html">Personal portfolio</a></td>
-                            <td data-label="Language">HTML / CSS</td>
+                            <td data-label="Language">HTML / CSS / JavaScript</td>
                             <td data-label="Date">2024-06-23</td>
                             <td data-label="Type">Personal</td>
                         </tr>
