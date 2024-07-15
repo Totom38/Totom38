@@ -1,0 +1,297 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #ddd;
+    background-color: #121212;
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background: #1e1e1e;
+    border-bottom: 1px solid #333;
+}
+
+header h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #ff7f00; /* Titre en orange */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700; /* Texte en gras */
+    transition: color 0.3s, border-bottom 0.3s;
+    padding-bottom: 5px;
+}
+
+nav ul li a:hover {
+    color: #ff7f00; /* Texte orange au survol */
+}
+
+nav ul li a.active {
+    border-bottom: 2px solid #ff7f00; /* Bordure inférieure orange pour l'onglet actif */
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+main section {
+    margin-top: 50px;
+}
+
+main section h2 {
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+main section p {
+    font-size: 18px;
+    color: #ccc;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #1e1e1e;
+    border-top: 1px solid #333;
+    margin-top: 20px;
+}
+
+/* Formulaires de connexion et d'inscription */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+form input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 300px;
+}
+
+form button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff7f00;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #ff5500;
+}
+
+form input:disabled, form button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+
+#register-success {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#register-success p {
+    margin-bottom: 10px;
+}
+
+#register-success a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff7f00;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#register-success a:hover {
+    background-color: #ff5500;
+}
+
+/* Section À propos de moi */
+.about-section {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 66.66%; /* 2/3 de la largeur totale */
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.about-text {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.profile-photo {
+    flex: 0 0 200px; /* Ajustez la largeur de l'image selon vos besoins */
+}
+
+.profile-photo img {
+    width: 100%;
+    height: auto;
+}
+
+/* Styles pour les écrans étroits */
+@media (max-width: 600px) {
+    .about-section {
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%; /* Réinitialiser la largeur à 100% sur les petits écrans */
+    }
+
+    .about-text {
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .profile-photo {
+        margin-bottom: 20px;
+    }
+
+    nav ul {
+        display: block;
+        text-align: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
+/* Dashboard Sections */
+.dashboard-section {
+    margin-top: 30px;
+}
+
+.dashboard-section h3 {
+    font-size: 24px;
+    color: #ff7f00;
+    margin-bottom: 10px;
+}
+
+.dashboard-section p, .dashboard-section ul {
+    font-size: 18px;
+    color: #ddd;
+}
+
+.dashboard-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dashboard-section ul li {
+    margin-bottom: 5px;
+}
+
+.dashboard-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.dashboard-section table th,
+.dashboard-section table td {
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: left;
+    color: #ddd;
+}
+
+.dashboard-section table th {
+    background-color: #333;
+    color: #ff7f00;
+}
+
+.dashboard-section table tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+.dashboard-section table tr:hover {
+    background-color: #444;
+}
+
+.dashboard-section table td:last-child {
+    text-align: center;
+}
+
+/* Formulaire d'ajout d'entrée */
+#add-entry-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#add-entry-form input, #add-entry-form select, #add-entry-form button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+#add-entry-form button {
+    background-color: #ff7f00;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#add-entry-form button:hover {
+    background-color: #ff5500;
+}
+
+/* Styles pour le bouton */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #ff7f00;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #ff5500;
+}

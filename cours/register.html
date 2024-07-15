@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un compte - Tom Gilgenkrantz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+<body>
+    <header>
+        <h1>Tom Gilgenkrantz</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="login.html">Se connecter</a></li>
+                <li><a href="register.html" class="active">Créer un compte</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="register">
+            <h2>Créer un compte</h2>
+            <form id="register-form">
+                <input type="text" id="prenom" placeholder="Prénom" required>
+                <input type="text" id="nom" placeholder="Nom" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Mot de passe" required>
+                <button type="submit">Créer un compte</button>
+            </form>
+            <p id="register-success" style="display: none;">
+                Compte créé avec succès ! <a href="login.html" id="login-link">Se connecter</a>
+            </p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Tom Gilgenkrantz. Tous droits réservés.</p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script>
+        // Configuration Firebase
+        var firebaseConfig = {
+            apiKey: "AIzaSyA-BFuM0k3h8i7kslKVhVVgNDrmIJkrXM8",
+            authDomain: "cours-de-maths.firebaseapp.com",
+            projectId: "cours-de-maths",
+            storageBucket: "cours-de-maths.appspot.com",
+            messagingSenderId: "8933653981",
+            appId: "1:8933653981:web:a4802b06c71776d4128a34",
+            measurementId: "G-3LBNDDM9DD"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        // Authentification
+        document.addEventListener('DOMContentLoaded', function () {
+            const registerForm = document.getElementById('register-form');
+            registerForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var email = document.getElementById('email').value;
+                var password = document.getElementById('password').value;
+                firebase.auth().createUserWithEmailAndPassword(email, password)
+                    .then((userCredential) => {
+                        document.getElementById('register-success').style.display = 'block';
+                        registerForm.reset();
+                        Array.from(registerForm.elements).forEach(element => element.disabled = true);
+                    })
+                    .catch((error) => {
+                        console.error("Error: ", error.message);
+                    });
+            });
+        });
+    </script>
+</body>
+</html>

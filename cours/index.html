@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Accueil - Tom Gilgenkrantz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+<body>
+    <header>
+        <h1>Tom Gilgenkrantz</h1>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="login.html" id="login-link">Se connecter</a></li>
+                <li><a href="register.html" id="register-link">Créer un compte</a></li>
+                <li><a href="dashboard.html" id="dashboard-link" style="display: none;">Dashboard</a></li>
+                <li><a href="#" id="logout-link" style="display: none;">Se déconnecter</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="about" class="about-section">
+            <div class="about-text">
+                <h2>À propos de moi</h2>
+                <p>Étudiant français en école d'ingénieur, spécialisé en finance quantitative et mathématiques appliqués. Particulièrement intéressé par la finance de marché (trading/ algotrading, structuration, analyse quantitative).</p>
+                <h2>Mon expérience de professeur</h2>
+                <p>Plus d'une vingtaine d'élèves de la 6ème jusqu'aux classes préparatoires accompagnés, noté 5 étoiles sur la plateforme Les Sherpas (<a href="https://sherpas.com/t/etudiant-en-ecole-dingenieur-donne-cours-de-mathematiques-et-dinformatique-en-ligne-et-sur-evry" target="_blank">lien</a>), pour des cours de mathématiques, physiques et informatiques. Les cours sont réalisés en ligne avec un tableau blanc interactif, ou en présentiel sur Paris.</p>
+            </div>
+            <div class="profile-photo">
+                <img src="images/profile.png" alt="Profil">
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Tom Gilgenkrantz. Tous droits réservés.</p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script>
+        // Configuration Firebase
+        var firebaseConfig = {
+            apiKey: "AIzaSyA-BFuM0k3h8i7kslKVhVVgNDrmIJkrXM8",
+            authDomain: "cours-de-maths.firebaseapp.com",
+            projectId: "cours-de-maths",
+            storageBucket: "cours-de-maths.appspot.com",
+            messagingSenderId: "8933653981",
+            appId: "1:8933653981:web:a4802b06c71776d4128a34",
+            measurementId: "G-3LBNDDM9DD"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        // Vérifier l'état de l'authentification
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                document.getElementById('login-link').style.display = 'none';
+                document.getElementById('register-link').style.display = 'none';
+                document.getElementById('dashboard-link').style.display = 'inline';
+                document.getElementById('logout-link').style.display = 'inline';
+            } else {
+                document.getElementById('login-link').style.display = 'inline';
+                document.getElementById('register-link').style.display = 'inline';
+                document.getElementById('dashboard-link').style.display = 'none';
+                document.getElementById('logout-link').style.display = 'none';
+            }
+        });
+
+        document.getElementById('logout-link').addEventListener('click', function() {
+            firebase.auth().signOut().then(() => {
+                window.location.href = "index.html";
+            }).catch((error) => {
+                console.error("Error: ", error.message);
+            });
+        });
+    </script>
+</body>
+</html>

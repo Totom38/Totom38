@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Tom Gilgenkrantz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+<body>
+    <header>
+        <h1>Tom Gilgenkrantz</h1>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="#" id="logout">Se déconnecter</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="dashboard">
+            <h2>Votre feuille de suivi</h2>
+            
+            <!-- Lien vers Google Sheets -->
+            <div class="dashboard-section" id="google-sheet-section">
+                <p id="google-sheet-link-container">
+                    <!-- Le lien Google Sheets sera inséré ici -->
+                </p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Tom Gilgenkrantz. Tous droits réservés.</p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script>
+        // Configuration Firebase
+        var firebaseConfig = {
+            apiKey: "AIzaSyA-BFuM0k3h8i7kslKVhVVgNDrmIJkrXM8",
+            authDomain: "cours-de-maths.firebaseapp.com",
+            projectId: "cours-de-maths",
+            storageBucket: "cours-de-maths.appspot.com",
+            messagingSenderId: "8933653981",
+            appId: "1:8933653981:web:a4802b06c71776d4128a34",
+            measurementId: "G-3LBNDDM9DD"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // Vérifier l'état de l'authentification
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                console.log("Utilisateur connecté :", user);
+                document.getElementById('logout').style.display = 'inline';
+                loadGoogleSheetLink(user.uid);
+            } else {
+                window.location.href = "index.html";
+            }
+        });
+
+        document.getElementById('logout').addEventListener('click', function() {
+            firebase.auth().signOut().then(() => {
+                window.location.href = "index.html";
+            }).catch((error) => {
+                console.error("Erreur de déconnexion :", error);
+            });
+        });
+
+        function loadGoogleSheetLink(userId) {
+            console.log("Chargement du lien Google Sheet pour l'utilisateur :", userId);
+            db.collection("users").doc(userId).get().then((doc) => {
+                if (doc.exists) {
+                    const data = doc.data();
+                    console.log("Données du document utilisateur :", data);
+                    const googleSheetLink = data.googleSheetLink;
+                    if (googleSheetLink) {
+                        console.log("Lien Google Sheet trouvé :", googleSheetLink);
+                        const linkElement = document.createElement('a');
+                        linkElement.href = googleSheetLink;
+                        linkElement.textContent = 'Accédez à votre feuille de suivi';
+                        linkElement.target = '_blank';
+                        linkElement.className = 'button';
+                        document.getElementById('google-sheet-link-container').appendChild(linkElement);
+                    } else {
+                        console.log("Aucun lien Google Sheet trouvé dans le document utilisateur.");
+                        document.getElementById('google-sheet-link-container').textContent = 'Aucun lien vers une feuille Google Sheets n\'a été trouvé.';
+                    }
+                } else {
+                    console.log("Aucun document utilisateur trouvé.");
+                    document.getElementById('google-sheet-link-container').textContent = 'Aucun lien vers une feuille Google Sheets n\'a été trouvé.';
+                }
+            }).catch((error) => {
+                console.error("Erreur lors de la récupération du document utilisateur :", error);
+            });
+        }
+    </script>
+</body>
+</html>
