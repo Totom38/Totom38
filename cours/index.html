@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil - Tom Gilgenkrantz</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
                 <h2>À propos de moi</h2>
                 <p>Étudiant français en école d'ingénieur, spécialisé en finance quantitative et mathématiques appliqués. Particulièrement intéressé par la finance de marché (trading/ algotrading, structuration, analyse quantitative).</p>
                 <h2>Mon expérience de professeur</h2>
-                <p>Plus d'une vingtaine d'élèves de la 6ème jusqu'aux classes préparatoires accompagnés, noté 5 étoiles sur la plateforme Les Sherpas (<a href="https://sherpas.com/t/etudiant-en-ecole-dingenieur-donne-cours-de-mathematiques-et-dinformatique-en-ligne-et-sur-evry" target="_blank">lien</a>), pour des cours de mathématiques, physiques et informatiques. Les cours sont réalisés en ligne avec un tableau blanc interactif, ou en présentiel sur Paris.</p>
+                <p>J'ai eu plus d'une vingtaine d'élèves de la 6ème jusqu'aux classes préparatoires. J'ai obtenu une note de 5 étoiles sur la plateforme Les Sherpas. Vous pouvez consulter mon profil <a href="https://www.les-sherpas.co/tutor/tom-gilgenkrantz" target="_blank">ici</a>. Les cours sont réalisés en ligne avec un tableau blanc et ma tablette graphique, ou en présentiel sur Paris.</p>
             </div>
             <div class="profile-photo">
                 <img src="images/profile.png" alt="Profil">
@@ -38,11 +38,10 @@
         <p>&copy; 2024 Tom Gilgenkrantz. Tous droits réservés.</p>
     </footer>
 
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
-    <script>
-        // Configuration Firebase
+    <script type="module">
         import firebaseConfig from './config.js';
+        
+        // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
 
         // Vérifier l'état de l'authentification
@@ -68,5 +67,7 @@
             });
         });
     </script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
 </body>
 </html>
