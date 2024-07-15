@@ -40,15 +40,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
     <script>
         // Configuration Firebase
-        var firebaseConfig = {
-            apiKey: "AIzaSyA-BFuM0k3h8i7kslKVhVVgNDrmIJkrXM8",
-            authDomain: "cours-de-maths.firebaseapp.com",
-            projectId: "cours-de-maths",
-            storageBucket: "cours-de-maths.appspot.com",
-            messagingSenderId: "8933653981",
-            appId: "1:8933653981:web:a4802b06c71776d4128a34",
-            measurementId: "G-3LBNDDM9DD"
-        };
+        import firebaseConfig from './config.js';
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
 
