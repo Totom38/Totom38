@@ -35,10 +35,10 @@ jobs:
       - name: Prepare deploy directory
         run: |
           mkdir deploy
-          rsync -av --progress ./cours deploy/cours --exclude deploy --exclude .git --exclude .github
+          rsync -av --progress cours/ deploy/ --exclude .git --exclude .github
 
       - name: List files in deploy directory
-        run: ls -la deploy/cours
+        run: ls -la deploy
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
