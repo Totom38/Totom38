@@ -20,6 +20,7 @@ jobs:
 
       - name: Create config.js with secrets
         run: |
+          mkdir -p cours
           echo "const firebaseConfig = {
             apiKey: '${{ secrets.API_KEY }}',
             authDomain: '${{ secrets.AUTH_DOMAIN }}',
@@ -34,7 +35,7 @@ jobs:
       - name: Prepare deploy directory
         run: |
           mkdir deploy
-          rsync -av --progress . deploy --exclude deploy --exclude .git --exclude .github
+          rsync -av --progress ./cours deploy/cours --exclude deploy --exclude .git --exclude .github
 
       - name: List files in deploy directory
         run: ls -la deploy/cours
