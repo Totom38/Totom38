@@ -9,21 +9,35 @@
     <link rel="icon" href="../images/logo.png" type="image/png">
     <style>
         .review-item {
+            width: 100%;
+            max-width: 33.33%;
             border: 1px solid #ddd;
             padding: 16px;
             margin-bottom: 16px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            background-color: #f9f9f9;
+            background-color: #333;
+            color: #fff;
+            box-sizing: border-box;
         }
         .review-item h3 {
             margin: 0;
             font-size: 1.2em;
-            color: #333;
+            color: orange;
         }
         .review-item p {
             margin: 8px 0 0;
-            color: #555;
+            color: #fff;
+        }
+        .reviews-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        @media (max-width: 768px) {
+            .review-item {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
@@ -78,7 +92,7 @@
                     const reviewItem = document.createElement('div');
                     reviewItem.classList.add('review-item');
                     reviewItem.innerHTML = `
-                        <h3>${review.rating} étoiles</h3>
+                        <h3>${'⭐'.repeat(review.rating)}</h3>
                         <p>${review.comment}</p>
                     `;
                     reviewsList.appendChild(reviewItem);
