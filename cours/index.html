@@ -48,7 +48,7 @@
     <script type="module">
         async function fetchReviews() {
             try {
-                const response = await fetch('reviews.json'); // Charge le fichier JSON
+                const response = await fetch('../reviews.json'); // Charge le fichier JSON
                 const reviews = await response.json();
 
                 // Classer les avis par longueur de contenu
