@@ -8,6 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="../images/logo.png" type="image/png">
     <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
         .review-item {
             width: 100%;
             max-width: 33.33%;
@@ -33,6 +36,34 @@
             display: flex;
             flex-wrap: wrap;
             gap: 16px;
+            justify-content: center;
+        }
+        .reviews-container {
+            max-height: 500px;
+            overflow-y: auto;
+            padding: 0 16px;
+        }
+        .reviews-title {
+            text-align: center;
+            font-size: 2em;
+            margin: 16px 0;
+        }
+        .reviews-menu {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .reviews-menu button {
+            padding: 8px 16px;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .reviews-menu button:hover {
+            background-color: #555;
         }
         @media (max-width: 768px) {
             .review-item {
@@ -67,9 +98,15 @@
             </div>
         </section>
         <section id="reviews" class="reviews-section">
-            <h2>Avis</h2>
-            <div id="reviews-list">
-                <!-- Les avis seront insérés ici par JavaScript -->
+            <div class="reviews-title">Avis</div>
+            <div class="reviews-menu">
+                <button onclick="scrollReviews('up')">⬆️</button>
+                <button onclick="scrollReviews('down')">⬇️</button>
+            </div>
+            <div class="reviews-container" id="reviews-container">
+                <div id="reviews-list" class="reviews-list">
+                    <!-- Les avis seront insérés ici par JavaScript -->
+                </div>
             </div>
         </section>
     </main>
@@ -99,6 +136,16 @@
                 });
             } catch (error) {
                 console.error('Erreur lors de la récupération des avis :', error);
+            }
+        }
+
+        // Fonction pour faire défiler les avis
+        function scrollReviews(direction) {
+            const container = document.getElementById('reviews-container');
+            if (direction === 'up') {
+                container.scrollBy({ top: -200, behavior: 'smooth' });
+            } else if (direction === 'down') {
+                container.scrollBy({ top: 200, behavior: 'smooth' });
             }
         }
 
