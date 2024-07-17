@@ -18,6 +18,7 @@
                 <li><a href="register.html" id="register-link">Créer un compte</a></li>
                 <li><a href="dashboard.html" id="dashboard-link" style="display: none;">Dashboard</a></li>
                 <li><a href="#" id="logout-link" style="display: none;">Se déconnecter</a></li>
+                <li><a href="#reviews">Avis</a></li> <!-- Nouvel onglet Avis -->
             </ul>
         </nav>
     </header>
@@ -33,50 +34,44 @@
                 <img src="../images/profile.png" alt="Profil">
             </div>
         </section>
+        <section id="reviews" class="reviews-section">
+            <h2>Avis</h2>
+            <div id="reviews-list">
+                <!-- Les avis seront insérés ici par JavaScript -->
+            </div>
+        </section>
     </main>
     <footer>
         <p>&copy; 2024 Tom Gilgenkrantz. Tous droits réservés.</p>
     </footer>
 
     <script type="module">
-        var firebaseConfig = {
-            apiKey: "AIzaSyA-BFuM0k3h8i7kslKVhVVgNDrmIJkrXM8",
-            authDomain: "cours-de-maths.firebaseapp.com",
-            projectId: "cours-de-maths",
-            storageBucket: "cours-de-maths.appspot.com",
-            messagingSenderId: "8933653981",
-            appId: "1:8933653981:web:a4802b06c71776d4128a34",
-            measurementId: "G-3LBNDDM9DD"
-        };
+        async function fetchReviews() {
+            try {
+                const response = await fetch('reviews.json'); // Charge le fichier JSON
+                const reviews = await response.json();
 
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
+                // Classer les avis par longueur de contenu
+                const sortedReviews = reviews.sort((a, b) => b.comment.length - a.comment.length);
 
-        // Vérifier l'état de l'authentification
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                document.getElementById('login-link').style.display = 'none';
-                document.getElementById('register-link').style.display = 'none';
-                document.getElementById('dashboard-link').style.display = 'inline';
-                document.getElementById('logout-link').style.display = 'inline';
-            } else {
-                document.getElementById('login-link').style.display = 'inline';
-                document.getElementById('register-link').style.display = 'inline';
-                document.getElementById('dashboard-link').style.display = 'none';
-                document.getElementById('logout-link').style.display = 'none';
+                const reviewsList = document.getElementById('reviews-list');
+
+                sortedReviews.forEach(review => {
+                    const reviewItem = document.createElement('div');
+                    reviewItem.classList.add('review-item');
+                    reviewItem.innerHTML = `
+                        <h3>${review.rating} étoiles</h3>
+                        <p>${review.comment}</p>
+                    `;
+                    reviewsList.appendChild(reviewItem);
+                });
+            } catch (error) {
+                console.error('Erreur lors de la récupération des avis :', error);
             }
-        });
+        }
 
-        document.getElementById('logout-link').addEventListener('click', function() {
-            firebase.auth().signOut().then(() => {
-                window.location.href = "index.html";
-            }).catch((error) => {
-                console.error("Error: ", error.message);
-            });
-        });
+        // Appel de la fonction pour récupérer les avis au chargement de la page
+        fetchReviews();
     </script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
 </body>
 </html>
