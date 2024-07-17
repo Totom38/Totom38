@@ -7,6 +7,51 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="../images/logo.png" type="image/png">
+    <style>
+        .form-section {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-section h2 {
+            text-align: center;
+        }
+        .form-section form {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-section input {
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .form-section button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .form-section button:hover {
+            background-color: #555;
+        }
+        .form-section .error-message {
+            color: red;
+            text-align: center;
+        }
+        .form-section .forgot-password {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .form-section .forgot-password a {
+            color: #333;
+            text-decoration: none;
+        }
+        .form-section .forgot-password a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -29,6 +74,14 @@
                 <input type="password" id="password" placeholder="Mot de passe" required>
                 <button type="submit">Se connecter</button>
                 <p id="error-message" class="error-message"></p>
+            </form>
+            <div class="forgot-password">
+                <a href="#" id="forgot-password-link">Mot de passe oublié ?</a>
+            </div>
+            <form id="reset-password-form" style="display: none;">
+                <input type="email" id="reset-email" placeholder="Email" required>
+                <button type="submit">Réinitialiser le mot de passe</button>
+                <p id="reset-message" class="error-message"></p>
             </form>
         </section>
     </main>
@@ -61,6 +114,24 @@
                 })
                 .catch((error) => {
                     document.getElementById('error-message').textContent = error.message;
+                });
+        });
+
+        document.getElementById('forgot-password-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('reset-password-form').style.display = 'block';
+        });
+
+        document.getElementById('reset-password-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('reset-email').value;
+
+            firebase.auth().sendPasswordResetEmail(email)
+                .then(() => {
+                    document.getElementById('reset-message').textContent = 'Email de réinitialisation envoyé.';
+                })
+                .catch((error) => {
+                    document.getElementById('reset-message').textContent = error.message;
                 });
         });
     </script>
